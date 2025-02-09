@@ -1,5 +1,9 @@
 body{
 	background-image: url("https://wallpapers.com/images/hd/4k-tech-twtykjtj0sv4hi62.jpg"); 
+	background-attachment: fixed;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
 }
 h1{
 	font-family: Verdana, sans-serif; 
