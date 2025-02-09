@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tabella Migranti</title>
+    <style>
+        body {
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+            background-color: #333;
+        }
+        h1 {
+            text-align: center;
+            text-transform: uppercase;
+            color: #ef0a0a;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: whitesmoke;
+            text-align: justify;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        th {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px;
+            text-align: left;
+        }
+        td {
+            background-color: #e9f5ff;
+            color: #333;
+            padding: 10px;
+            text-align: left;
+        }
+        tr:nth-child(even) td {
+            background-color: #f2f2f2;
+        }
+        input {
+            display: block;
+            margin: 20px auto;
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1>TABELLA MIGRANTI SANAD</h1>
+    <p>
+    Carica un file CSV; E verrà generata la tabella.
+    </p>
+    <input type="file" onchange="readFile(this)" accept=".csv">
+    <table id="tabellaCSV"></table>
+
+    <script>
+        function readFile(input) {
+            let file = input.files[0];
+            let reader = new FileReader();
+
+            reader.readAsText(file);
+            reader.onload = function() {
+                let data = reader.result;
+                let rows = data.split("\n");
+                let table = document.getElementById("tabellaCSV");
+                table.innerHTML = "";
+
+                for (let i = 0; i < rows.length; i++) {
+                    let row = rows[i].split(",");
+                    let tr = document.createElement("tr");
+                    for (let j = 0; j < row.length; j++) {
+                        let cell;
+                        if (i === 0) {
+                            cell = document.createElement("th");
+                        } else {
+                            cell = document.createElement("td");
+                        }
+                        cell.textContent = row[j].trim();
+                        tr.appendChild(cell);
+                    }
+                    table.appendChild(tr);
+                }
+            };
+            reader.onerror = function() {
+                console.error("si Ã¨ verificato un errore nella lettura del file:", reader.error);
+            };
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+body{
+	background-image: url("https://images5.alphacoders.com/112/1123456.jpg"); 
+}
+h1{
+	font-family: Verdana, sans-serif; 
+	color: blue; 
+	text-align: center;
+	margin-top: 5%; 
+}
+h2{
+	font-family: Verdana, sans-serif; 
+	color: rgb(0, 128, 255); 
+	text-align: center;
+}
+p{
+	font-family: Arial, sans-serif; 
+	font-size: 18px; 
+	margin-top: 3%; 
+	text-align: center; 
+	color: gray; 
+}
