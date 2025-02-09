@@ -10,21 +10,169 @@
         h1{
             text-align: center;
             padding-top: 10px;
-            font-size: 15px;
+            font-size: 25px;
             color: red;
             font-weight: bold;
         }
         p{
             padding-left: 5px;
+            padding-bottom: 30px;
             color: black;
-            font-style: oblique;
-            font-size: 10px;
+            font-weight: bold;
+            font-size: 15px;
+            text-align: center;
+        }
+        table{
+            border-collapse: collapse;
+            font-size: 20px;
+            text-transform: uppercase;
+        }
+        th,td{
+            text-align: center;
+            border: 2px solid black;
+            padding-left: 10px;
+            padding-right: 10px;
+            padding-top: 10px;
+            padding-bottom: 10px;
         }
     </style>
     <body>
         <h1>Pagina Index di Sanad Al Muhtaseb</h1>
-        <p>
-            Benvenuti nel mio repository!!! Qui potrete vedere tutti i lavori svolti da me nel corso di quest'anno per la materia di TPSIT. Potrete vedere tutti gli argomenti che abbiamo trattato 
-        </p>
+        <center>
+            <table>
+                <tr>
+                    <th colspan="3">LAVORI TPS</th>
+                </tr>
+                <tr>
+                    <th>LAVORO</th>
+                    <th>DESCRIZIONE</th>
+                    <th>FILE</th>
+                </tr>
+                <tr>
+                    <td>
+                        anagrafica personale
+                    </td>
+                    <td>
+                        <button onclick="alert('Si realizzi una pagina web che possa prendere in input i seguenti valori testuali: Nome; Cognome e Indirizzo. La stampa dei risultati dovrà essere incasellata in una tabella web.Gradito un layout aggraziato (con css)')">Cliccami</button>
+                    </td>
+                    <td>
+                        <input type="button" value="Cliccami" onclick="location.href='AnagraficaPersonale.html'">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        form con input
+                    </td>
+                    <td>
+                        <button onclick="alert('Si realizzi un form web contenente i seguenti campi: Cognome,Nome,Età,Indirizzo,CAP.')">Cliccami</button>
+                    </td>
+                    <td>
+                        <input type="button" value="Cliccami" onclick="location.href='FormTabella.html'">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        ciclo for
+                    </td>
+                    <td>
+                        <button onclick="alert('Dato un numero intero n, bisogna creare e stampare tutte le coppie di numeri che sommate danno come risultato n')">Cliccami</button>
+                    </td>
+                    <td>
+                        <input type="button" value="Cliccami" onclick="location.href='CicloFor.html'">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        elenco nomi
+                    </td>
+                    <td>
+                        <button onclick="alert('Si realizzi uno script che permetta ad un ipotetico utente di inserire i dati anagrafici di una serie di persone. I dati dovranno essere salvati in un vettore e stampati in html')">Cliccami</button>
+                    </td>
+                    <td>
+                        <input type="button" value="Cliccami" onclick="location.href='FormTabella 2.html'">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        conta cifre
+                    </td>
+                    <td>
+                        <button onclick="alert('Si realizzi un programma che, dato in ingresso un numero, mi restituisca il numero delle cifre')">Cliccami</button>
+                    </td>
+                    <td>
+                        <input type="button" value="Cliccami" onclick="location.href='ContaCifre.html'">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        sequenza di fibonacci
+                    </td>
+                    <td>
+                        <button onclick="alert('Si desidera di realizzare uno script che generi e stampa in un DIV la sequenza di fibonacci fino al numero 100')">Cliccami</button>
+                    </td>
+                    <td>
+                        <input type="button" value="Cliccami" onclick="location.href='Fibonacci.html'">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        anagrafica 2.0
+                    </td>
+                    <td>
+                        <button onclick="alert('Si realizzi una form che contenga i campi di una ipotetica anagrafica. Si registrino i dati in un vettore e si aggiunga lo stesso in un supervettore. SI trasportino i dati ottenuti in una nuova pagina che possa stampare gli stessi in formato tabellare')">Cliccami</button>
+                    </td>
+                    <td>
+                        <input type="button" value="Cliccami" onclick="location.href='datiAnagrafici.html'">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        pagina html
+                    </td>
+                    <td>
+                        <button onclick="alert('Si realizzi una pagina html che contenga gli elementi principali del metalinguaggio e si utilizzino gli stili maggiormente diffusi quali: colore, font, dimensioni, ecc.')">Cliccami</button>
+                    </td>
+                    <td>
+                        <input type="button" value="Cliccami" onclick="location.href='PaginaEsempio.html'">
+                        <p>
+                            <input type="button" value="Fogli di Stile" onclick="location.href='StilePagina.css'">
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        tabella migranti
+                    </td>
+                    <td>
+                        <button onclick="alert('Si realizzi un file html contenente una tabella popolata da un file esterno di tipo csv (in allegato). Per leggerlo occorre utilizzare fileReader la cui sintassi metto in link separato.Infine, per scrivere la tabella, occorre splittare i dati tramite la funzione split relativa alle stringhe in javascript.')">Cliccami</button>
+                    </td>
+                    <td>
+                        <input type="button" value="Cliccami" onclick="location.href='Tabella_dei_Migranti_Sanad.html'">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        stella
+                    </td>
+                    <td>
+                        <button onclick="alert('Realizzare una stella a cinque punte utilizzando i canvas')">Cliccami</button>
+                    </td>
+                    <td>
+                        <input type="button" value="Cliccami" onclick="location.href='Canvas_Stella.html'">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        tabella migranti 2.0
+                    </td>
+                    <td>
+                        <button onclick="alert('Al lavoro precedente, si desidera inserire una funzione che mi disegna un grafico xy con i valori degli sbarchi e degli anni')">Cliccami</button>
+                    </td>
+                    <td>
+                        <input type="button" value="Cliccami" onclick="location.href='Tabella_Migranti2.0.html'">
+                    </td>
+                </tr>
+            </table>
+        </center>
     </body>
 </html>
