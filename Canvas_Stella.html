@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Stella a 5 punte</title>
+</head>
+    <style>
+        body{
+            background-color: rgb(206, 123, 15);
+        }
+        h1 {
+            text-align: center;
+            color: rgb(41, 49, 210);
+            font-size: 50px;
+            padding-top: 10px;
+        }
+        canvas {
+            display: block;
+            margin: 20px auto;
+            border: 5px solid rgb(207, 21, 240);
+            background-color: rgb(22, 191, 30);
+        }
+    </style>
+</head>
+<body>
+    <h1>Stella a 5 punte Sanad</h1>
+    <canvas id="Canvas" width="300" height="300" ></canvas>
+    </body>
+<script>
+    const canvas = document.getElementById("Canvas");
+    const ctx = canvas.getContext("2d");
+    ctx.fillStyle = "white";
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(150, 20); // punta    
+    ctx.lineTo(195, 140);  
+    ctx.lineTo(300, 150);  //punta destra
+    ctx.lineTo(215, 200);  
+    ctx.lineTo(240, 300);  
+    ctx.lineTo(150, 230);  
+    ctx.lineTo(60, 300);   
+    ctx.lineTo(85, 200);   
+    ctx.lineTo(0, 150);    
+    ctx.lineTo(105, 140);  
+    ctx.closePath();       
+    ctx.fill();
+    ctx.stroke();
+</script>
+</html>

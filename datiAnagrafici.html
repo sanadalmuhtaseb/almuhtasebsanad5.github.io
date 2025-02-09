@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dati Anagrafici</title>
+</head>
+<body>
+    <h1>Inserisci Dati Anagrafici</h1>
+    <form id="formAnagrafici">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" required><br><br>
+
+        <label for="cognome">Cognome:</label>
+        <input type="text" id="cognome" required><br><br>
+
+        <label for="eta">Età:</label>
+        <input type="number" id="eta" required><br><br>
+
+        <button type="button" onclick="aggiungiPersona()">Aggiungi Persona</button>
+    </form>
+
+    <h2>Elenco Dati Anagrafici</h2>
+    <table border="1" id="tabellaAnagrafici">
+        <tr>
+            <th>Nome</th>
+            <th>Cognome</th>
+            <th>Età</th>
+        </tr>
+    </table>
+
+    <script>
+        // Array per salvare i dati anagrafici
+        let persone = [];
+
+        // Funzione per aggiungere una persona al vettore e aggiornare la tabella
+        function aggiungiPersona() {
+            let nome = document.getElementById("nome").value;
+            let cognome = document.getElementById("cognome").value;
+            let eta = document.getElementById("eta").value;
+
+            // Aggiungi la persona all'array
+            let persona = { nome, cognome, eta };
+            persone.push(persona);
+
+            // Aggiungi una nuova riga alla tabella
+            let tabella = document.getElementById("tabellaAnagrafici");
+            let riga = tabella.insertRow();
+            riga.insertCell(0).innerHTML = nome;
+            riga.insertCell(1).innerHTML = cognome;
+            riga.insertCell(2).innerHTML = eta;
+
+            // Pulisci i campi del form
+            document.getElementById("formAnagrafici").reset();
+        }
+    </script>
+</body>
+</html>
