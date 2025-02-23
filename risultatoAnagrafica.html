@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Risultato Anagrafica</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: bold;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border: 2px solid yellow;
+        }
+        h1 {
+            color: red;
+            text-align: center;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Dati</h1>
+    <table>
+        <thead>
+            <tr>
+                <th colspan="6" style="text-align: center">Dati Utenti</th>
+                <tr>
+                <th>Nome Utente</th>
+                <th>Cognome Utente</th>
+                <th>Data di Nascita Utente</th>
+                <th>Indirizzo Utente</th>
+                <th>Email Utente</th>
+                <th>Password Utente</th>
+            </tr>
+        </tr>
+        </thead>
+        <tbody id="dati"></tbody>
+    </table>
+
+    <script>
+        const datiUtenti = JSON.parse(localStorage.getItem('datiAnagraficiUtenti'));
+        if (datiUtenti.length > 0) {
+            let output = '';
+            for (let i = 0; i < datiUtenti.length; i += 6) {
+                output += `<tr>`;
+                for (let j = i; j < i + 6; j++) {
+                  output += `<td>${datiUtenti[j]}</td>`;
+                }
+                output += `</tr>`;
+            }
+            document.getElementById("dati").innerHTML = output;
+        } else {
+            document.getElementById("dati").innerHTML = "Nessun utente registrato";
+        }
+    </script>
+</body>
+</html>
