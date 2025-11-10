@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<title>Anagrafica Utenti</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 20px;
+}
+
+h2 {
+    text-align: center;
+    color: #2c3e50;
+}
+
+input[type="text"], input[type="number"] {
+    padding: 8px;
+    margin-right: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 200px;
+}
+
+button {
+    padding: 8px 15px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #3498db;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #3498db;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+#outputGenerazione {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #2c3e50;
+}
+</style>
+</head>
+<body>
+<h2>Anagrafica Utenti</h2>
+
+<div>
+    <input type="text" id="inputLettera" placeholder="Lettera iniziale">
+    <button onclick="filtraCognomi()">Filtra</button>
+    <button onclick="filtraMaggiorenni()">Maggiorenni</button>
+</div>
+
+<div style="margin-top: 15px;">
+    <input type="number" id="inputAnno" placeholder="Inserisci anno">
+    <button onclick="mostraGenerazioneAnno()">Generazione</button>
+    <p id="outputGenerazione"></p>
+</div>
+
+<table>
+<thead>
+<tr><th>Nome</th><th>Cognome</th><th>Anno</th><th>Generazione</th></tr>
+</thead>
+<tbody id="tabellaUtenti"></tbody>
+</table>
+
+<script>
+var listaUtenti = [];
+
+var richiestaUtenti = new XMLHttpRequest();
+richiestaUtenti.open("GET", "anagrafica.json");
+richiestaUtenti.onload = function() {
+    listaUtenti = JSON.parse(richiestaUtenti.responseText);
+    visualizzaUtenti(listaUtenti);
+};
+richiestaUtenti.send();
+
+function visualizzaUtenti(elenco) {
+    var html = "";
+    for (var i = 0; i < elenco.length; i++) {
+        html += "<tr><td>" + elenco[i].nome + "</td><td>" + elenco[i].cognome +
+        "</td><td>" + elenco[i].anno + "</td><td>" +
+        calcolaGenerazione(elenco[i].anno) + "</td></tr>";
+    }
+    document.getElementById("tabellaUtenti").innerHTML = html;
+}
+
+function calcolaGenerazione(annoNascita) {
+    if (annoNascita >= 2013) return "Alpha";
+    else if (annoNascita >= 1997) return "Z";
+    else if (annoNascita >= 1981) return "Millennials";
+    else if (annoNascita >= 1965) return "X";
+    else if (annoNascita >= 1946) return "Boomers";
+    else if (annoNascita >= 1923) return "Silent Generation";
+    else return "Altro";
+}
+
+function filtraCognomi() {
+    var letteraIniziale = document.getElementById("inputLettera").value;
+    var utentiFiltrati = [];
+    for (var i = 0; i < listaUtenti.length; i++) {
+        var inizialeCognome = listaUtenti[i].cognome[0];
+        if (inizialeCognome == letteraIniziale) {
+            utentiFiltrati.push(listaUtenti[i]);
+        }
+    }
+    visualizzaUtenti(utentiFiltrati);
+}
+
+function filtraMaggiorenni() {
+    var utentiMaggiorenni = [];
+    const annoCorrente = new Date().getFullYear();
+    for (var i = 0; i < listaUtenti.length; i++) {
+        if (annoCorrente - listaUtenti[i].anno >= 18) {
+            utentiMaggiorenni.push(listaUtenti[i]);
+        }
+    }
+    visualizzaUtenti(utentiMaggiorenni);
+}
+
+function mostraGenerazioneAnno() {
+    var annoInserito = document.getElementById("inputAnno").value;
+    if (annoInserito == "") return;
+    document.getElementById("outputGenerazione").innerText = "Appartiene a: " + calcolaGenerazione(annoInserito);
+}
+</script>
+</body>
+</html>
